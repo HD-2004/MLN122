@@ -50,8 +50,6 @@ body { margin: 0; background: var(--cream); color: var(--ink); }
 }
 * {
   box-sizing: border-box;
-  scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
 }
 button, input { font: inherit; }
 button { cursor: pointer; border: 0; }
