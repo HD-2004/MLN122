@@ -32,6 +32,11 @@ import {
 } from 'lucide-react';
 import './styles.css';
 
+const assetUrl = (path) => {
+  if (!path || /^https?:\/\//.test(path)) return path;
+  return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, '')}`;
+};
+
 const money = (value) =>
   new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND', maximumFractionDigits: 0 }).format(value);
 
@@ -354,7 +359,7 @@ function App() {
             <div className="modal-content">
               {modal.img && (
                 <div style={{ width: '100%', height: '200px', overflow: 'hidden', borderBottom: '1px solid var(--line)', borderTopLeftRadius: '24px', borderTopRightRadius: '24px' }}>
-                  <img src={modal.img} alt={modal.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                  <img src={assetUrl(modal.img)} alt={modal.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                 </div>
               )}
               <div className="modal-head">
@@ -647,7 +652,7 @@ function App() {
         <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: '32px', maxWidth: '800px', margin: '28px auto 16px', flexWrap: 'wrap' }}>
           <div className="timeline-img-card" style={{ width: '280px', height: '180px', borderRadius: '16px', overflow: 'hidden', boxShadow: '0 8px 24px rgba(0,0,0,0.1)', border: '1px solid var(--line)', position: 'relative' }}>
             <img 
-              src={timelineData[timeline].img} 
+              src={assetUrl(timelineData[timeline].img)} 
               alt={timelineData[timeline].label} 
               style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'all 0.4s ease' }} 
             />
@@ -687,7 +692,7 @@ function App() {
             
             <div className="map-relative-wrapper" style={{ position: 'relative', width: '100%', height: '100%', marginTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <img 
-                src="/vietnam-map-custom.png" 
+                src={assetUrl('/vietnam-map-custom.png')} 
                 alt="Bản đồ Việt Nam và Quần đảo Hoàng Sa, Trường Sa" 
                 style={{ width: '100%', height: '100%', objectFit: 'contain', display: 'block', borderRadius: '16px' }} 
               />
@@ -713,7 +718,7 @@ function App() {
               >
                 <div style={{ width: '100%', height: '110px', overflow: 'hidden', position: 'relative' }}>
                   <img 
-                    src={data.img} 
+                    src={assetUrl(data.img)} 
                     alt={data.title} 
                     style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease', transform: activeCity === key ? 'scale(1.08)' : 'scale(1)' }} 
                     className="city-img"
