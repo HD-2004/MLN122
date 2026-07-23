@@ -2291,9 +2291,9 @@ button,
 }
 
 .ai-logo-chatgpt {
-  width: 188px;
-  height: 188px;
-  transform: translateY(21px);
+  width: 148px;
+  height: 148px;
+  transform: translateY(18px);
 }
 
 .ai-logo-gemini {
@@ -2366,8 +2366,8 @@ button,
   }
 
   .ai-logo-chatgpt {
-    width: 156px;
-    height: 156px;
+    width: 148px;
+    height: 148px;
     transform: translateY(18px);
   }
 
