@@ -3,5 +3,8 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/MLN122/'
+  base: '/MLN122/',
+  build: {
+    chunkSizeWarningLimit: 17000
+  }
 });
