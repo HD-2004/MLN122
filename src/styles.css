@@ -2164,7 +2164,7 @@ button,
   font-size: clamp(58px, 7.6vw, 108px);
   font-weight: 900;
   line-height: 0.95;
-  color: rgba(240, 237, 228, 0.54);
+  color: rgba(102, 96, 82, 0.22);
   text-align: center;
   margin: 18px 0 142px;
   letter-spacing: 0;
@@ -2266,12 +2266,40 @@ button,
   align-items: center;
   justify-content: center;
   padding: 10px;
+  overflow: hidden;
 }
 
 .ai-tool-logo {
-  width: 82px;
-  height: 82px;
+  display: block;
+  flex: 0 0 auto;
+  max-width: none;
   object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+
+.ai-logo-notebooklm {
+  width: 145px;
+  height: 145px;
+  transform: translateY(43px);
+}
+
+.ai-logo-claude {
+  width: 178px;
+  height: 178px;
+  transform: translateY(22px);
+}
+
+.ai-logo-chatgpt {
+  width: 188px;
+  height: 188px;
+  transform: translateY(21px);
+}
+
+.ai-logo-gemini {
+  width: 430px;
+  height: 430px;
+  transform: translate(152px, 0);
 }
 
 .ai-tool-name {
@@ -2321,8 +2349,32 @@ button,
   }
 
   .ai-tool-logo {
-    width: 56px;
-    height: 56px;
+    transform-origin: center;
+  }
+
+  .ai-logo-notebooklm {
+    width: 118px;
+    height: 118px;
+    transform: translateY(36px);
+  }
+
+  .ai-logo-claude,
+  .ai-logo-chatgpt {
+    width: 148px;
+    height: 148px;
+    transform: translateY(18px);
+  }
+
+  .ai-logo-chatgpt {
+    width: 156px;
+    height: 156px;
+    transform: translateY(18px);
+  }
+
+  .ai-logo-gemini {
+    width: 328px;
+    height: 328px;
+    transform: translate(104px, 0);
   }
 
   .ai-tool-name {
@@ -2344,25 +2396,25 @@ button,
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: calc(100vh - 150px);
-  padding: 18px 0 18px;
+  min-height: 100dvh;
+  padding: 28px 0 24px;
 }
 
 .team-title {
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(42px, 5.4vw, 62px);
+  font-size: clamp(42px, 4.8vw, 54px);
   font-weight: 900;
   line-height: 1;
   color: var(--ink);
   text-align: center;
-  margin: 0 0 14px;
+  margin: 0 0 8px;
 }
 
 .team-receipt {
   position: relative;
   width: min(100%, 890px);
-  margin-top: 14px;
-  padding: 92px 58px 62px;
+  margin-top: 10px;
+  padding: 54px 58px 34px;
   border-radius: 2px;
   background: rgba(240, 237, 228, 0.95);
   box-shadow: 0 34px 80px rgba(24, 24, 27, 0.16);
@@ -2370,16 +2422,17 @@ button,
 }
 
 .team-receipt-header {
-  padding-bottom: 40px;
+  padding-bottom: 22px;
   border-bottom: 2px dashed rgba(102, 96, 82, 0.25);
 }
 
 .team-receipt-header p {
   color: #1b422e;
   font-family: 'Courier New', monospace;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.38em;
+  line-height: 1.35;
   text-transform: uppercase;
 }
 
@@ -2395,7 +2448,7 @@ button,
 }
 
 .receipt-perforation.top {
-  top: 16px;
+  top: 12px;
 }
 
 .receipt-perforation.bottom {
@@ -2406,30 +2459,30 @@ button,
   display: flex;
   justify-content: space-between;
   gap: 24px;
-  margin: 28px 0 26px;
+  margin: 16px 0 14px;
   color: var(--muted);
   font-family: 'Courier New', monospace;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   text-align: left;
 }
 
 .team-topic {
-  margin: 0 auto 8px;
+  margin: 0 auto 6px;
   color: var(--ink);
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: clamp(22px, 2.7vw, 30px);
+  font-size: clamp(20px, 2.1vw, 25px);
   font-style: italic;
   font-weight: 900;
-  line-height: 1.2;
+  line-height: 1.12;
   text-wrap: balance;
 }
 
 .receipt-subtitle {
-  margin: 0 0 14px;
+  margin: 0 0 16px;
   color: var(--red);
   font-family: 'Courier New', monospace;
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 900;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -2445,7 +2498,7 @@ button,
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr) 148px;
   align-items: center;
-  min-height: 65px;
+  min-height: 50px;
   border-bottom: 1px dashed rgba(102, 96, 82, 0.28);
   text-align: left;
 }
@@ -2457,22 +2510,24 @@ button,
 .receipt-row span:first-child {
   color: var(--red);
   font-family: 'Courier New', monospace;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 900;
 }
 
 .receipt-row strong {
   color: var(--ink);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
+  line-height: 1.25;
   text-align: center;
 }
 
 .receipt-row b {
   color: #1b422e;
   font-family: 'Courier New', monospace;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 900;
+  line-height: 1.25;
   text-align: right;
 }
 
@@ -2495,11 +2550,11 @@ button,
   grid-template-columns: 1fr 120px;
   align-items: center;
   gap: 24px;
-  padding: 20px 0 22px;
+  padding: 12px 0 12px;
   border-bottom: 2px solid var(--ink);
   color: var(--ink);
   font-family: 'Courier New', monospace;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.28em;
   text-transform: uppercase;
@@ -2507,14 +2562,14 @@ button,
 
 .receipt-total b {
   color: var(--red);
-  font-size: 28px;
+  font-size: 24px;
   letter-spacing: 0.12em;
   text-align: right;
 }
 
 .receipt-barcode {
-  height: 68px;
-  margin: 38px 0 20px;
+  height: 44px;
+  margin: 18px 0 10px;
   background:
     repeating-linear-gradient(90deg,
       var(--ink) 0 3px,
@@ -2527,12 +2582,12 @@ button,
 }
 
 .receipt-thanks {
-  margin: 0 0 24px;
+  margin: 0 0 16px;
   color: rgba(102, 96, 82, 0.66);
   font-family: 'Courier New', monospace;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
-  letter-spacing: 0.36em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
 }
 
@@ -2603,10 +2658,13 @@ button,
   overflow: visible;
 }
 
-.ai-tool-name,
+.ai-tool-name {
+  line-height: 1.45;
+}
+
 .receipt-row strong,
 .receipt-row b {
-  line-height: 1.45;
+  line-height: 1.25;
 }
 
 .page-flow-action {
@@ -2614,4 +2672,8 @@ button,
   z-index: 2;
   margin-top: 36px;
   flex-shrink: 0;
+}
+
+.team-page .page-flow-action {
+  margin-top: 18px;
 }
