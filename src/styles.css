@@ -2164,7 +2164,7 @@ button,
   font-size: clamp(58px, 7.6vw, 108px);
   font-weight: 900;
   line-height: 0.95;
-  color: rgba(102, 96, 82, 0.22);
+  color: var(--ink);
   text-align: center;
   margin: 18px 0 142px;
   letter-spacing: 0;
