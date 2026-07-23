@@ -85,8 +85,8 @@ p { margin: 0; line-height: 1.65; }
   border-radius: 28px;
   background: rgba(255,255,255,.82);
   box-shadow: 0 24px 60px rgba(22, 22, 24, .14);
+  -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
-  scrollbar-width: none;
 }
 .rail::-webkit-scrollbar { display: none; }
 .rail button {
@@ -392,8 +392,8 @@ h2 { max-width: 820px; margin: 0 auto 24px; font-size: clamp(28px, 4vw, 48px); l
   padding: 28px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.45);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 24px 60px rgba(24, 24, 27, 0.06);
 }
@@ -796,15 +796,15 @@ button, .chip, .toggle, .rail button, .info-card, .journey article, .city-grid a
   position: absolute;
   inset: 0;
   background: rgba(24, 24, 27, 0.4);
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   animation: fadeIn 0.28s ease both;
 }
 .modal-card {
   position: relative;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(25px);
   -webkit-backdrop-filter: blur(25px);
+  backdrop-filter: blur(25px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 24px;
   padding: 0;
@@ -1015,7 +1015,7 @@ button, .chip, .toggle, .rail button, .info-card, .journey article, .city-grid a
   .rail { left: 50%; top: auto; bottom: 14px; transform: translateX(-50%); grid-auto-flow: column; grid-template-columns: none; gap: 6px; max-width: calc(100vw - 20px); overflow-x: auto; border-radius: 999px; }
   .rail button { width: 34px; height: 34px; }
   .rail button svg { width: 18px; height: 18px; }
-  .hero-grid, .builder, .simulator { grid-template-columns: 1fr; min-height: auto; gap: 24px; }
+  .hero-grid, .builder, .simulator { grid-template-columns: 1fr; min-height: 0; gap: 24px; }
   h1 { font-size: 38px; }
   .phone-visual { min-height: 440px; border-width: 8px; }
   .answer-grid, .journey, .city-grid, .flash-grid, .quiz-options, .effects-grid { grid-template-columns: 1fr; }
@@ -1151,8 +1151,8 @@ button, .chip, .toggle, .rail button, .info-card, .journey article, .city-grid a
   position: absolute;
   transform: translate(-50%, -50%);
   background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   border: 1.5px solid var(--line);
   border-radius: 16px;
   padding: 14px 10px;
@@ -1459,8 +1459,8 @@ button, .chip, .toggle, .rail button, .info-card, .journey article, .city-grid a
   gap: 16px;
   padding: 32px 24px;
   background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1.5px solid rgba(255, 255, 255, 0.6);
   border-radius: 20px;
   box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08);
@@ -1605,8 +1605,8 @@ button, .chip, .toggle, .rail button, .info-card, .journey article, .city-grid a
   gap: 20px;
   padding: 20px 28px;
   background: rgba(255, 255, 255, 0.88);
-  backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
   border: 1.5px solid rgba(255, 255, 255, 0.6);
   border-radius: 16px;
   box-shadow: 0 6px 24px rgba(99, 102, 241, 0.06);

@@ -25,12 +25,17 @@ if (!fs.existsSync(htmlPath)) {
 console.log('2. Đang đọc các tệp build...');
 let html = fs.readFileSync(htmlPath, 'utf-8');
 
+const resolveBuiltAsset = (assetPath) => {
+  const normalized = assetPath.split('?')[0].replace(/^\/+/, '');
+  const withoutBase = normalized.replace(/^MLN122\//, '');
+  return path.join(distDir, withoutBase);
+};
+
 // 2. Tìm và nhúng CSS inline
 const cssRegex = /<link rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g;
 html = html.replace(cssRegex, (match, cssPath) => {
   // Lấy đường dẫn chính xác (bỏ ký tự / ở đầu nếu có)
-  const relativeCssPath = cssPath.startsWith('/') ? cssPath.substring(1) : cssPath;
-  const absoluteCssPath = path.join(distDir, relativeCssPath);
+  const absoluteCssPath = resolveBuiltAsset(cssPath);
   
   if (fs.existsSync(absoluteCssPath)) {
     console.log(`   > Nhúng CSS inline: ${cssPath}`);
@@ -43,8 +48,7 @@ html = html.replace(cssRegex, (match, cssPath) => {
 // 3. Tìm các file JS để nhúng inline và xử lý chuyển đổi hình ảnh public sang Base64
 const jsRegex = /<script[^>]*src="([^"]+)"[^>]*><\/script>/g;
 html = html.replace(jsRegex, (match, jsPath) => {
-  const relativeJsPath = jsPath.startsWith('/') ? jsPath.substring(1) : jsPath;
-  const absoluteJsPath = path.join(distDir, relativeJsPath);
+  const absoluteJsPath = resolveBuiltAsset(jsPath);
   
   if (fs.existsSync(absoluteJsPath)) {
     console.log(`   > Đọc file JS để nhúng: ${jsPath}`);
@@ -59,7 +63,7 @@ html = html.replace(jsRegex, (match, jsPath) => {
         if (['.png', '.jpg', '.jpeg', '.svg', '.gif'].includes(ext)) {
           const filePath = path.join(publicDir, file);
           const extName = ext.substring(1);
-          const mime = extName === 'svg' ? 'image/svg+xml' : `image/${extName}`;
+          const mime = extName === 'svg' ? 'image/svg+xml' : extName === 'jpg' || extName === 'jpeg' ? 'image/jpeg' : `image/${extName}`;
           const base64 = fs.readFileSync(filePath, 'base64');
           const dataUrl = `data:${mime};base64,${base64}`;
 
@@ -85,7 +89,7 @@ html = html.replace(imgRegex, (match, imgPath) => {
   const absoluteImgPath = path.join(publicDir, imgPath);
   if (fs.existsSync(absoluteImgPath)) {
     const ext = path.extname(imgPath).substring(1);
-    const mime = ext === 'svg' ? 'image/svg+xml' : `image/${ext}`;
+    const mime = ext === 'svg' ? 'image/svg+xml' : ext === 'jpg' || ext === 'jpeg' ? 'image/jpeg' : `image/${ext}`;
     const base64 = fs.readFileSync(absoluteImgPath, 'base64');
     return `src="data:${mime};base64,${base64}"`;
   }
