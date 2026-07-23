@@ -1710,6 +1710,7 @@ button, .chip, .toggle, .rail button, .info-card, .journey article, .city-grid a
   line-height: 1.2;
   padding-block: 0.08em;
   overflow: visible;
+  text-transform: uppercase;
 }
 
 .ai-tool-name,
@@ -1717,4 +1718,11 @@ button, .chip, .toggle, .rail button, .info-card, .journey article, .city-grid a
 .team-id {
   font-family: inherit;
   line-height: 1.45;
+}
+
+.page-flow-action {
+  position: relative;
+  z-index: 2;
+  margin-top: 36px;
+  flex-shrink: 0;
 }

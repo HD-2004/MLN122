@@ -51,8 +51,8 @@ const sections = [
   { id: 'cards', label: 'Ghi nhớ', icon: BadgeCheck },
   { id: 'quiz', label: 'Quiz', icon: Trophy },
   { id: 'final', label: 'Tổng kết', icon: Sparkles },
-  { id: 'ai-tools', label: 'AI Hỗ trợ', icon: Bot },
-  { id: 'team', label: 'Thành viên', icon: UsersRound }
+  { id: 'ai-tools', label: 'AI hỗ trợ', icon: Bot },
+  { id: 'team', label: 'Thành viên nhóm', icon: UsersRound }
 ];
 
 const platformData = {
@@ -1071,14 +1071,14 @@ function App() {
           </p>
         </div>
 
-        <button className="primary" onClick={() => go('intro')}>Khám phá lại từ đầu</button>
+        <button className="primary" onClick={() => go('ai-tools')}>Tiếp tục</button>
       </section>
 
       {/* SECTION 11: AI TOOLS */}
       <section className={`screen center ${active === 'ai-tools' ? 'show' : ''}`}>
         <div className="ai-tools-page">
           <div className="ai-bg-pattern"></div>
-          <h1 className="ai-title">SỬ DỤNG AI HỖ TRỢ</h1>
+          <h1 className="ai-title">Sử dụng AI hỗ trợ</h1>
           <div className="ai-tools-grid">
             {/* NotebookLM */}
             <div className="ai-tool-card">
@@ -1155,6 +1155,7 @@ function App() {
               <line x1="250" y1="60" x2="350" y2="40" stroke="rgba(99, 102, 241, 0.15)" strokeWidth="1"/>
             </svg>
           </div>
+          <button className="primary page-flow-action" onClick={() => go('team')}>Tiếp tục</button>
         </div>
       </section>
 
@@ -1162,7 +1163,7 @@ function App() {
       <section className={`screen center ${active === 'team' ? 'show' : ''}`}>
         <div className="team-page">
           <div className="team-bg-pattern"></div>
-          <h1 className="team-title">THÀNH VIÊN NHÓM</h1>
+          <h1 className="team-title">Thành viên nhóm</h1>
           <div className="team-members-list">
             <div className="team-member-card">
               <div className="team-avatar">
@@ -1210,6 +1211,7 @@ function App() {
               </div>
             </div>
           </div>
+          <button className="primary page-flow-action" onClick={() => go('intro')}>Khám phá lại từ đầu</button>
         </div>
       </section>
     </main>
